@@ -40,9 +40,9 @@ const onFormSubmit = async event => {
   showLoader(); // показать loader перед запросом
 
   try {
-    const response = await getImagesByQuery(query, page);
-    const images = response.data.hits;
-    totalHits = response.data.totalHits;
+    const data = await getImagesByQuery(query, page);
+    const images = data.hits;
+    totalHits = data.totalHits;
 
     if (images.length === 0) {
       iziToast.error({
@@ -82,11 +82,12 @@ const onLoadMoreButton = async () => {
   showLoader(); // показ loader
 
   try {
-    const response = await getImagesByQuery(query, page);
-    const images = response.data.hits;
+    const data = await getImagesByQuery(query, page);
+    const images = data.hits;
 
     createGallery(images); // отрисовка галереи
 
+    // прокрутка страницы при нажатии кнопки
     const { height } = document
       .querySelector('.gallery-img-list')
       .getBoundingClientRect();
