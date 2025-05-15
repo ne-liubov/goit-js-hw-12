@@ -47,11 +47,7 @@ export const createGallery = images => {
 
   galleryContainer.insertAdjacentHTML('beforeend', markup);
 
-  // if (lightbox) {
-    lightbox.refresh();
-  // } else {
-  //   lightbox = new SimpleLightbox('.gallery a');
-  // }
+  lightbox.refresh();
 };
 
 // очистка галереи
@@ -61,20 +57,16 @@ export const clearGallery = () => {
 
 // показ/скрытие лоадера
 export const showLoader = () => {
-  console.log('Показать лоадер');
   loaderEl.classList.remove('is-hidden');
 };
 export const hideLoader = () => {
-  console.log('Скрыть лоадер');
   loaderEl.classList.add('is-hidden');
 };
 
 // показ/скрытие кнопки LoadMore
 export const showLoadMoreButton = () => {
-  console.log('Показать кнопку');
   loadMoreButton.classList.remove('is-hidden');
 };
 export const hideLoadMoreButton = () => {
-  console.log('Скрыть кнопку');
   loadMoreButton.classList.add('is-hidden');
 };
